@@ -34,22 +34,30 @@ const AnimatedTitle = ({ title, containerClass }) => {
     return () => ctx.revert(); // Clean up on unmount
   }, []);
 
-  return (
-    <div ref={containerRef} className={clsx("animated-title", containerClass)}>
-      {title.split("<br />").map((line, index) => (
-        <div
-          key={index}
-          className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3"
-        >
-          {line.split(" ").map((word, idx) => (
+  const parseTitle = (rawTitle) => {
+    const parser = new DOMParser();
+    const parsedHTML = parser.parseFromString(rawTitle, "text/html");
+    return parsedHTML.body.innerHTML.split("<br>").map((line, index) => (
+      <div
+        key={index}
+        className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3"
+      >
+        {line
+          .split(" ")
+          .map((word, idx) => (
             <span
               key={idx}
               className="animated-word"
               dangerouslySetInnerHTML={{ __html: word }}
             />
           ))}
-        </div>
-      ))}
+      </div>
+    ));
+  };
+
+  return (
+    <div ref={containerRef} className={clsx("animated-title", containerClass)}>
+      {parseTitle(title)}
     </div>
   );
 };
