@@ -15,18 +15,24 @@ export default {
       },
       colors:{
         blue:{
-          50:"#DFDFF0",
-          75:"#DFDFF2",
-          100:"#F0F2FA",
-          200:"#010101",
-          300:"#4fB7DD"
+          50:"#F5F5DC",
+          75:"#FFF8E7",
+          100:"#FFFBF0",
+          200:"#1B4332",
+          300:"#D4AF37"
         },
         voilet:{
-          300:"#5724FF"
+          300:"#228B22"
         },
         yellow:{
-          100:"#8E983F",
-          300:"#EDFF66"
+          100:"#8B7355",
+          300:"#D4AF37"
+        },
+        eid:{
+          green:"#1B4332",
+          gold:"#D4AF37",
+          cream:"#FFF8E7",
+          darkGreen:"#0D2818"
         }
       },
     },
